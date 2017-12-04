@@ -42,3 +42,13 @@ kubectl delete deployment hello-minikube
 # Stop Kubernetes cluster
 minikube stop
 ```
+
+## Reusing the Docker daemon
+> To use docker on the command line on your host mac/linux machine talking to the docker daemon inside the minikube VM:
+```shell
+# To eval
+eval $(minikube docker-env)
+
+# Then try some command
+docker ps
+```
