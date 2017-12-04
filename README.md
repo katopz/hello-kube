@@ -6,6 +6,9 @@ Simple kubernetes example
 # Install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# Install Brew Caskroom
+brew install caskroom/cask/brew-cask
+
 # Install Kubernetes command-line tool
 brew install kubectl
 
