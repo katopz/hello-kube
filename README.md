@@ -55,3 +55,57 @@ eval $(minikube docker-env)
 # Then try some command
 docker ps
 ```
+
+## Build
+```shell
+# Build builder
+npm run build-builder
+
+# Build image (optional)
+npm run build-image
+```
+
+## Create a container cluster
+```shell
+# Login
+gcloud auth login
+
+# Build and push to hub
+npm run hub
+
+# Create cluster
+gcloud container clusters create hello-cluster --num-nodes=3
+
+# List cluster
+gcloud compute instances list
+```
+
+# Deploy
+```shell
+# Port
+export PORT=3000
+
+# Try local (optional)
+docker run --rm -p 3000:3000 gcr.io/$PROJECT_ID/hello-app:$VERSION
+
+# Run
+kubectl run hello-kube --image=gcr.io/$PROJECT_ID/hello-kube:$VERSION --port $PORT
+
+# See it run
+kubectl get pods
+
+# Expose your application to the Internet
+kubectl expose deployment hello-kube --type=LoadBalancer --port 80 --target-port $PORT
+
+# See it expose
+kubectl get service
+```
+
+## Destroy
+```shell
+gcloud container clusters delete hello-kube
+
+# Delete service
+kubectl delete service hello-web
+```
+

@@ -1,20 +1,24 @@
 {
   "name": "hello-kube",
   "version": "1.0.0",
+  "config": {
+    "project_id": "hello-kube-188211"
+  },
   "description": "Deploy on Kubernetes",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "watch": "tsc -w",
+    "tscw": "tsc -w",
     "dev": "nodemon index.js",
     "start": "node index.js",
     "test": "jest --watchAll",
-    "docker-build-tsc": "cd builder && docker build -t tsc:latest . && docker image ls tsc",
-    "docker-build": "docker build -t hello-kube:latest . && docker image ls hello-kube",
+    "build-builder": "cd builder && docker build -t tsc:latest . && docker image ls tsc",
+    "build-image": "docker build -t hello-kube:latest . && docker image ls hello-kube",
     "up": "docker-compose build && docker-compose up -d && docker ps || true",
     "down": "docker-compose kill || true && docker-compose down || true",
     "history": "docker history hello-kube > history.log && cat history.log || true",
-    "size": "echo $(($(docker image inspect hello-kube -f {{.Size}})/1024/1024))MB"
+    "size": "echo $(($(docker image inspect hello-kube -f {{.Size}})/1024/1024))MB",
+    "hub": ". ./scripts/hub.sh"
   },
   "repository": {
     "type": "git",
