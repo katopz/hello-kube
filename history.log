@@ -1,0 +1,16 @@
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+c29789b2aa16        16 minutes ago      /bin/sh -c #(nop)  CMD ["node" "index.js"]      0B                  
+f61cf2df1dc8        16 minutes ago      /bin/sh -c #(nop)  EXPOSE 3000                  0B                  
+b480fab1c090        16 minutes ago      /bin/sh -c #(nop) COPY dir:a40c284dd5a9b3e5e…   97.2kB              
+7c7951686cb7        16 minutes ago      /bin/sh -c #(nop) WORKDIR /usr/app/             0B                  
+7ac825faf5b8        16 minutes ago      /bin/sh -c npm config set registry https://r…   10.5MB              
+5fe4018e3294        16 minutes ago      /bin/sh -c #(nop) COPY file:8c5694924d13a41b…   1.27kB              
+e16c9ad38c5a        22 hours ago        /bin/sh -c #(nop)  ENV PORT=3000                0B                  
+dc3f8573507a        23 hours ago        /bin/sh -c #(nop)  ENV NODE_ENV=production      0B                  
+04a3ba95f191        5 weeks ago         /bin/sh -c #(nop)  CMD ["node"]                 0B                  
+<missing>           5 weeks ago         /bin/sh -c apk add --no-cache --virtual .bui…   4.18MB              
+<missing>           5 weeks ago         /bin/sh -c #(nop)  ENV YARN_VERSION=1.2.1       0B                  
+<missing>           5 weeks ago         /bin/sh -c addgroup -g 1000 node     && addu…   56.4MB              
+<missing>           5 weeks ago         /bin/sh -c #(nop)  ENV NODE_VERSION=8.8.1       0B                  
+<missing>           5 weeks ago         /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B                  
+<missing>           5 weeks ago         /bin/sh -c #(nop) ADD file:1e87ff33d1b6765b7…   3.97MB              

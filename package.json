@@ -1,0 +1,44 @@
+{
+  "name": "hello-kube",
+  "version": "1.0.0",
+  "description": "Deploy on Kubernetes",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "jest --watchAll",
+    "docker-build-tsc": "cd builder && docker build -t tsc:latest . && docker image ls tsc",
+    "docker-build": "docker build -t hello-kube:latest . && docker image ls hello-kube",
+    "up": "docker-compose build && docker-compose up -d && docker ps || true",
+    "down": "docker-compose kill || true && docker-compose down || true",
+    "history": "docker history hello-kube > history.log && cat history.log || true",
+    "size": "echo $(($(docker image inspect hello-kube -f {{.Size}})/1024/1024))MB"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digithun/hello-kube.git"
+  },
+  "author": "katopz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/digithun/hello-kube/issues"
+  },
+  "homepage": "https://github.com/digithun/hello-kube#readme",
+  "dependencies": {
+    "apollo-server-express": "^1.2.0",
+    "cor": "^0.0.0",
+    "cors": "^2.8.4",
+    "es6-promise": "^4.1.1",
+    "express": "^4.16.2",
+    "graphql": "^0.11.7",
+    "graphql-tools": "^2.12.0",
+    "helmet": "^3.9.0",
+    "isomorphic-fetch": "^2.2.1",
+    "util.promisify": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.55"
+  }
+}

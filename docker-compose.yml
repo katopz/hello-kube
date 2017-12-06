@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  nap:
+    container_name: nap
+    env_file: .env
+    environment:
+      - PORT=${PORT:-3000}
+    image: hello-kube
+    working_dir: /usr/app
+    ports:
+      - "$PORT:3000"
+    command: npm run start
