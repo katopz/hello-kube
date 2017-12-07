@@ -6,14 +6,17 @@ Simple kubernetes example
 # Install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Install Brew Caskroom
-brew install caskroom/cask/brew-cask
-
 # Install Kubernetes command-line tool
 brew install kubectl
 
 # Install Minikube
 brew cask install minikube
+
+# Install gcloud
+brew cask install google-cloud-sdk
+
+# Install virtualbox (optional)
+brew cask install virtualbox
 ```
 
 ## Start
@@ -109,3 +112,7 @@ gcloud container clusters delete hello-kube
 kubectl delete service hello-kube
 ```
 
+## Secret
+```shell
+
+```
