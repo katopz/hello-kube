@@ -106,6 +106,6 @@ kubectl get service
 gcloud container clusters delete hello-kube
 
 # Delete service
-kubectl delete service hello-web
+kubectl delete service hello-kube
 ```
 
