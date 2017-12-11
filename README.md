@@ -52,7 +52,7 @@ minikube stop
 ## Reusing the Docker daemon
 > To use docker on the command line on your host mac/linux machine talking to the docker daemon inside the minikube VM:
 ```shell
-# To eval
+# To use Docker via minikube
 eval $(minikube docker-env)
 
 # Then try some command
@@ -73,7 +73,10 @@ npm run build-image
 # Login
 gcloud auth login
 
-# Build and push to hub
+# Setup config.project_id in package.json
+open package.json
+
+# Build and push to hub, will export $PROJECT_NAME, $IMAGE from package.json
 npm run hub
 
 # Create cluster
@@ -89,16 +92,16 @@ gcloud compute instances list
 export PORT=3000
 
 # Try local (optional)
-docker run --rm -p 3000:$PORT gcr.io/$PROJECT_ID/hello-app:$VERSION
+docker run --rm -p 3000:$PORT $IMAGE
 
 # Run
-kubectl run hello-kube --image=gcr.io/$PROJECT_ID/hello-kube:$VERSION --port $PORT
+kubectl run hello-kube --image=$IMAGE --port $PORT
 
 # See it run
 kubectl get pods
 
 # Expose your application to the Internet
-kubectl expose deployment hello-kube --type=LoadBalancer --port 80 --target-port $PORT
+kubectl expose deployment $PROJECT_NAME --type=LoadBalancer --port 80 --target-port $PORT
 
 # See it expose
 kubectl get service
@@ -106,13 +109,8 @@ kubectl get service
 
 ## Destroy
 ```shell
-gcloud container clusters delete hello-kube
+gcloud container clusters delete $PROJECT_NAME
 
 # Delete service
-kubectl delete service hello-kube
-```
-
-## Secret
-```shell
-
+kubectl delete service $PROJECT_NAME
 ```
